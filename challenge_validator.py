@@ -26,18 +26,15 @@ class Challenge_Validator:
             return Decline_Reason.TIME_CONTROL
 
         variant: str = challenge_event['variant']['key']
-        is_rated: bool = challenge_event['rated']
-
-        # ✅ Accept rated + casual for standard and chess960
-        # ✅ Accept only casual for all other variants
-        if variant in ['standard', 'chess960']:
-            pass
-        elif is_rated:
-            print(f'❌ Rated challenge for "{variant}" is not allowed. Only standard and chess960 rated allowed.')
-            return Decline_Reason.CASUAL
-        elif variant not in self.config.challenge.variants:
-            print(f'❌ Casual variant "{variant}" is not allowed according to config.')
+        if variant not in self.config.challenge.variants:
+            print(f'Variant "{variant}" is not allowed according to config.')
             return Decline_Reason.VARIANT
+
+        # Check rated_standard_only for rated challenges
+        is_rated: bool = challenge_event['rated']
+        if is_rated and self.config.challenge.casual_variants_only and variant not in ['standard', 'chess960']:
+            print(f'Rated challenges are only allowed for standard and chess960 variant according to config.')
+            return Decline_Reason.CASUAL
 
         if (len(self.game_manager.tournaments) +
                 len(self.game_manager.tournaments_to_join)) >= self.config.challenge.concurrency:
@@ -45,7 +42,7 @@ class Challenge_Validator:
             return Decline_Reason.LATER
 
         if challenge_event['challenger']['id'] in self.config.whitelist:
-            return
+            return None
 
         if challenge_event['challenger']['id'] in self.config.blacklist:
             print('Challenger is blacklisted.')
@@ -104,11 +101,13 @@ class Challenge_Validator:
             print('Casual is not allowed according to config.')
             return Decline_Reason.RATED
 
+        return None
+
     def _get_time_controls(self, speeds: list[str]) -> list[tuple[int, int]]:
         time_controls: list[tuple[int, int]] = []
         for speed in speeds:
             if '+' in speed:
                 initial_str, increment_str = speed.split('+')
-                time_controls.append((int(initial_str) * 60, int(increment_str)))
+                time_controls.append((int(float(initial_str) * 60), int(increment_str)))
 
         return time_controls
