@@ -26,8 +26,17 @@ class Challenge_Validator:
             return Decline_Reason.TIME_CONTROL
 
         variant: str = challenge_event['variant']['key']
-        if variant not in self.config.challenge.variants:
-            print(f'Variant "{variant}" is not allowed according to config.')
+        is_rated: bool = challenge_event['rated']
+
+        # ✅ Accept rated + casual for standard and chess960
+        # ✅ Accept only casual for all other variants
+        if variant in ['standard', 'chess960']:
+            pass
+        elif is_rated:
+            print(f'❌ Rated challenge for "{variant}" is not allowed. Only standard and chess960 rated allowed.')
+            return Decline_Reason.CASUAL
+        elif variant not in self.config.challenge.variants:
+            print(f'❌ Casual variant "{variant}" is not allowed according to config.')
             return Decline_Reason.VARIANT
 
         if (len(self.game_manager.tournaments) +
@@ -86,7 +95,6 @@ class Challenge_Validator:
             print('Bullet against bots is only allowed with increment according to config.')
             return Decline_Reason.TOO_FAST
 
-        is_rated: bool = challenge_event['rated']
         is_casual = not is_rated
         if is_rated and 'rated' not in modes:
             print('Rated is not allowed according to config.')
