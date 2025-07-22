@@ -423,7 +423,10 @@ class Config:
             ['variants', list, '"variants" must be a list of variants.'],
             ['time_controls', list | None, '"time_controls" must be a list of speeds or time controls.'],
             ['bot_modes', list | None, '"bot_modes" must be a list of game modes.'],
-            ['human_modes', list | None, '"human_modes" must be a list of game modes.']]
+            ['human_modes', list | None, '"human_modes" must be a list of game modes.']
+            ['casual_variants_only', bool, '"casual_variants_only" must be a bool.']]  # ✅ ADDED HERE
+          
+    
 
         for subsection in challenge_sections:
             if subsection[0] not in challenge_section:
@@ -441,7 +444,9 @@ class Config:
                                 challenge_section['variants'],
                                 challenge_section['time_controls'] or [],
                                 challenge_section['bot_modes'] or [],
-                                challenge_section['human_modes'] or [])
+                                challenge_section['human_modes'] or []
+                                challenge_section.get('casual_variants_only', False))
+
 
     @staticmethod
     def _get_matchmaking_config(matchmaking_section: dict[str, Any]) -> Matchmaking_Config:
