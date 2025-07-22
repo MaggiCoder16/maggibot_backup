@@ -418,13 +418,13 @@ class Config:
     @staticmethod
     def _get_challenge_config(challenge_section: dict[str, Any]) -> Challenge_Config:
         challenge_sections = [
-            ['concurrency', int, '"concurrency" must be an integer.'],
-            ['bullet_with_increment_only', bool, '"bullet_with_increment_only" must be a bool.'],
-            ['variants', list, '"variants" must be a list of variants.'],
-            ['time_controls', list | None, '"time_controls" must be a list of speeds or time controls.'],
-            ['bot_modes', list | None, '"bot_modes" must be a list of game modes.'],
-            ['human_modes', list | None, '"human_modes" must be a list of game modes.'],
-            ['casual_variants_only', bool, '"casual_variants_only" must be a bool.']]  # ✅ ADDED HERE
+            ('concurrency', int, '"concurrency" must be an integer.'),
+            ('bullet_with_increment_only', bool, '"bullet_with_increment_only" must be a bool.'),
+            ('variants', list, '"variants" must be a list of variants.'),
+            ('time_controls', list | None, '"time_controls" must be a list of speeds or time controls.'),
+            ('bot_modes', list | None, '"bot_modes" must be a list of game modes.'),
+            ('human_modes', list | None, '"human_modes" must be a list of game modes.'),
+            ('casual_variants_only', bool, '"casual_variants_only" must be a bool.')]  # ✅ ADDED HERE
           
     
 
