@@ -443,10 +443,10 @@ class Config:
                                 challenge_section.get('max_initial'),
                                 challenge_section['variants'],
                                 challenge_section['time_controls'] or [],
-                                challenge_section['bot_modes'] or [],
-                                challenge_config.human_modes = challenge_section.get('human_modes') or []
+                                challenge_section.get('human_modes') or [],
                                 challenge_section.get('casual_variants_only', False))
-
+                                
+                                
 
     @staticmethod
     def _get_matchmaking_config(matchmaking_section: dict[str, Any]) -> Matchmaking_Config:
