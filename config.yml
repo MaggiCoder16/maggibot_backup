@@ -140,11 +140,12 @@ resign:
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 2                          # Number of games to play simultaneously.
   bullet_with_increment_only: false       # Whether bullet games against BOTs should only be accepted with increment.
-# min_increment: 0                        # Minimum amount of increment to accept a challenge.
-# max_increment: 180                      # Maximum amount of increment to accept a challenge.
-# min_initial: 0                          # Minimum amount of initial time to accept a challenge.
-# max_initial: 315360000                  # Maximum amount of initial time to accept a challenge.
-  variants:                               # Chess variants to accept (https://lichess.org/variant).
+  casual_variants_only: true              # Only allow casual for non-standard/chess960 variants.
+  # min_increment: 0                      # Optional: uncomment to enforce time limits
+  # max_increment: 180
+  # min_initial: 0
+  # max_initial: 315360000
+  variants:                               # Chess variants to accept (https://lichess.org/variant)
     - standard
     - chess960
     - antichess
@@ -154,6 +155,7 @@ challenge:                                # Incoming challenges. (Commenting all
     - racingKings
     - crazyhouse
     - threeCheck
+
   time_controls:                          # Speeds or time controls in initial_minutes+increment_seconds format to accept.
     - bullet
     - blitz
