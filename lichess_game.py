@@ -163,7 +163,7 @@ class Lichess_Game:
         self.white_time = gameState_event['wtime'] / 1000
         self.black_time = gameState_event['btime'] / 1000
           
-          return
+        return
 
         moves = gameState_event['moves'].split()
         if len(moves) > len(self.board.move_stack):
