@@ -141,7 +141,6 @@ challenge:                                # Incoming challenges. (Commenting all
   concurrency: 2                          # Number of games to play simultaneously.
   bullet_with_increment_only: false       # Whether bullet games against BOTs should only be accepted with increment.
   casual_variants_only: true              # Only allow casual for non-standard/chess960 variants.
-  max_takebacks: 3                        # Maximum number of takebacks granted to a human.
   # min_increment: 0                      # Optional: uncomment to enforce time limits
   # max_increment: 180
   # min_initial: 0
