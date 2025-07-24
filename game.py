@@ -22,7 +22,10 @@ class Game:
         asyncio.create_task(self.api.get_game_stream(self.game_id, game_stream_queue))
         info = Game_Information.from_gameFull_event(await game_stream_queue.get())
         opponent_is_bot = (info.black_title == 'BOT') if info.white_name == self.username else (info.white_title == 'BOT')
-        if not opponent_is_bot: self.config.opening_books.books = { "HumanBook": "./engines/Titans.bin" }     
+        if not opponent_is_bot:
+            self.config.opening_books.books.names = {
+                "HumanBook": "./engines/Titans.bin"
+            }
      
         
         lichess_game = await Lichess_Game.acreate(self.api, self.config, self.username, info)
