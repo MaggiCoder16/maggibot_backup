@@ -27,8 +27,7 @@ class Game:
             self.config.opening_books.books.update({
                 "HumanBook": "./engines/Titans.bin"
             })
-            }
-     
+            
         
         lichess_game = await Lichess_Game.acreate(self.api, self.config, self.username, info)
         chatter = Chatter(self.api, self.config, self.username, info, lichess_game)
