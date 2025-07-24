@@ -27,6 +27,9 @@ class Game:
             self.config.opening_books.books.update({
                 "HumanBook": "./engines/Titans.bin"
             })
+            self.config.use_opening_explorer = False
+        else:
+            self.config.use_opening_explorer = True
             
         
         lichess_game = await Lichess_Game.acreate(self.api, self.config, self.username, info)
