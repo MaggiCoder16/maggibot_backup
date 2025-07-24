@@ -199,10 +199,10 @@ messages:
   #   {cpu} to insert CPU information
   #   {ram} to insert RAM size
   # Any other words in curly braces will be removed.
-  greeting: "I don’t need luck. You’ll need a miracle. Good luck — it won’t help."                                                              # Message sent to the opponent at the beginning o[...]
-  goodbye: "Result: expected. Pattern: familiar."                                             # Message sent to the opponent after the end of a game.
-  greeting_spectators: "Status: Online | Mistakes: Not defined | Loss: N/A"                            # Message sent to the spectators at the beginning of a game.
-  goodbye_spectators: "That wasn’t a match. That was just a demonstration."                                           # Message sent to the spectators after the end of a game.
+  greeting: "Welcome! I promise to blunder only 0 times."                                                              # Message sent to the opponent at the beginning o[...]
+  goodbye: "My NNUE saw the future and said, 'nah, too cringe'."                                             # Message sent to the opponent after the end of a game.
+  greeting_spectators: "Welcome to another episode of 'How to Sac Like a Psycho'!"                            # Message sent to the spectators at the beginning of a game.
+  goodbye_spectators: "NNUE_Drift out. Time to pretend I'm not running on Python spaghetti."                                           # Message sent to the spectators after the end of a game.
 # whitelist:                              # List of users whose challenges are always accepted.
 #   - Username1
 #   - Username2
