@@ -215,5 +215,5 @@ messages:
 books:
   DefaultBook: "./engines/Book2.bin"
   BackupBook: "./engines/Book3.bin"
-  HumanBook: "./engines/Perfect2021.bin"
+  HumanBook: "./engines/Titans.bin"
   
