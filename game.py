@@ -51,11 +51,7 @@ class Game:
         print("📚 Book config now:", self.config.opening_books.books)
         print("🔌 Explorer:", self.config.use_opening_explorer)
         print("🌩️ Cloud eval:", self.config.use_opening_cloud_eval)
-        print("💾 ChessDB:", self.config.use_opening_database)
-
-    # ✅ Continue game handling
-        await self.handle_game(game_stream_queue, info)
-            
+        print("💾 ChessDB:", self.config.use_opening_database)            
         
         lichess_game = await Lichess_Game.acreate(self.api, self.config, self.username, info)
         chatter = Chatter(self.api, self.config, self.username, info, lichess_game)
