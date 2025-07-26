@@ -87,8 +87,8 @@ opening_books:
 
 online_moves:
   opening_explorer:
-    enabled: false
-    use_for_variants: false
+    enabled: false 
+    use_for_variants: false 
     priority: 200                         # Priority with which this move source is used. Higher priority is used first.
     only_without_book: true              # Whether the Lichess opening explorer should only be used if there is no matching book.
     min_time: 20                          # Time the bot must have at least to use the online move. +10 seconds in games without increment.
