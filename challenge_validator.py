@@ -32,7 +32,7 @@ class Challenge_Validator:
 
         # Check rated_standard_only for rated challenges
         is_rated: bool = challenge_event['rated']
-        if is_rated and self.config.challenge.casual_variants_only and variant not 'standard':
+        if is_rated and self.config.challenge.casual_variants_only and variant != 'standard':
             print(f'Rated challenges are only allowed for standard variant according to config.')
             return Decline_Reason.CASUAL
 
