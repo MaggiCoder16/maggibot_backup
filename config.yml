@@ -200,10 +200,10 @@ messages:
   #   {cpu} to insert CPU information
   #   {ram} to insert RAM size
   # Any other words in curly braces will be removed.
-  greeting: "I once checkmated myself just to see how it feels. Good Luck!"                                                              # Message sent to the opponent at the beginning o[...]
-  goodbye: "My NNUE saw the future and said, 'nah, too cringe'."                                             # Message sent to the opponent after the end of a game.
-  greeting_spectators: "Welcome to another episode of 'How to Sac Like a Psycho'!"                            # Message sent to the spectators at the beginning of a game.
-  goodbye_spectators: "This game was rated E for Emotional Damage. I hope you took notes - on what *not* to do."                                           # Message sent to the spectators after the end of a game.
+  greeting: "Hi! I'm running {engine}. Good Luck!"                                                              # Message sent to the opponent at the beginning o[...]
+  goodbye: "Good game, Well played!"                                             # Message sent to the opponent after the end of a game.
+  greeting_spectators: "Welcome to the game! I run {engine}. Type !help for a list of commands I can respond to!"                            # Message sent to the spectators at the beginning of a game.
+  goodbye_spectators: "Hope you enjoyed the game. See you soon!"                                           # Message sent to the spectators after the end of a game.
 # whitelist:                              # List of users whose challenges are always accepted.
 #   - Username1
 #   - Username2
