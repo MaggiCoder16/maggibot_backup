@@ -26,7 +26,7 @@ engines:
 
   chess960:                               # Engine used for standard chess and when no suitable special engine is configured.
     dir: "./engines"                      # Directory containing the engine.
-    name: "newsf"          # Binary name of the engine to use (update for Windows).
+    name: "stockfish"          # Binary name of the engine to use (update for Windows).
     ponder: true                          # Think on opponent's time.
     silence_stderr: false                 # Suppresses stderr output.
     move_overhead_multiplier: 1.0         # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
@@ -80,6 +80,11 @@ opening_books:
       names:                              # List of names of books to use if there is no specific book for the time control, white, black or chess960.
         - DefaultBook
         - BackupBook
+
+    chess960:
+      selection: best_move                # Move selection is one of "weighted_random", "uniform_random" or "best_move".
+      names:                              # List of names of books to use as black.
+        - book
 
 online_moves:
   opening_explorer:
@@ -211,3 +216,4 @@ books:
   DefaultBook: "./engines/Book2.bin"
   BackupBook: "./engines/Book3.bin"  
   blackbook: "./engines/blackbook.bin"
+  book: "./engines/book.bin"
