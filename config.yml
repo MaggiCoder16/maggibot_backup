@@ -88,15 +88,8 @@ opening_books:
     chess960:
       selection: best_move                # Move selection is one of "weighted_random", "uniform_random" or "best_move".
       names:                              # List of names of books to use as black.
-        - white1
-        - white2
-
-    chess960_black:
-      selection: best_move                # Move selection is one of "weighted_random", "uniform_random" or "best_move".
-      names:                              # List of names of books to use as black.
-        - black1
-        - black2
-
+        - book
+        
 online_moves:
   opening_explorer:
     enabled: false
@@ -228,7 +221,5 @@ books:
   BackupBook: "./engines/Book3.bin"  
   blackbook: "./engines/blackbook.bin"
   special: "./engines/white.bin"
-  white1: "./engines/whitespecial1.bin"
-  white2: "./engines/whitespecial2.bin"
-  black1: "./engines/blackspecial1.bin"
-  black2: "./engines/blackspecial2.bin"
+  book: "./engines/book.bin"
+
